@@ -55,9 +55,9 @@ if data is not None:
         ax.text(total_tat + 1, y, f"({count})", ha='left', va='center', fontsize=12, fontweight='bold', color='black')
 
     ax.set_yticks([])
-    ax.set_xlabel("Turnaround Time (Days)", fontsize=14, fontname='arvo')
-    ax.set_ylabel("Turnaround Time Groups (Sale to DOE, DOE to COI)", fontsize=14, fontname='arvo')
-    ax.set_title("Turnaround Time Analysis (Grouped & Stacked Horizontal Bar Chart)", fontsize=16, fontname='Georgia')
+    ax.set_xlabel("Turnaround Time (Days)", fontsize=14, fontname='Arvo', fontstyle='italic')
+    ax.set_ylabel("Turnaround Time Groups (Sale to DOE, DOE to COI)", fontsize=14, fontname='Arvo', fontstyle='italic')
+    ax.set_title("Turnaround Time Analysis (Grouped & Stacked Horizontal Bar Chart)", fontsize=16, fontname='Georgia', fontweight='bold')
     ax.legend()
     ax.spines['left'].set_visible(False)
     ax.spines['top'].set_visible(False)
