@@ -54,11 +54,13 @@ if data is not None:
     for y, total_tat, count in zip(y_positions, groupedData["TATSaleToCOI"], groupedData["Count"]):
         ax.text(total_tat + 1, y, f"({count})", ha='left', va='center', fontsize=12, fontweight='bold', color='black')
 
-    ax.set_yticks(y_positions)
+    ax.set_yticks([])
     ax.set_yticklabels([f"{row.TATSaleToDOE},{row.TATDOEToCOI}" for _, row in groupedData.iterrows()])
     ax.set_xlabel("Turnaround Time (Days)")
     ax.set_ylabel("Turnaround Time Groups (Sale to DOE, DOE to COI)")
     ax.set_title("Turnaround Time Analysis (Grouped & Stacked Horizontal Bar Chart)")
     ax.legend()
-    
+    ax.spines["left"].set_visible(False)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
     st.pyplot(fig)
