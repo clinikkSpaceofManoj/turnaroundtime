@@ -89,6 +89,12 @@ if uploaded_file is not None:
 
         # Formatting the Plot
         ax.set_yticks([])
+        
+        # Set x-ticks dynamically based on max turnaround time
+        max_tat = tat_summary["Total TAT (Sale to COI)"].max()
+        tick_interval = max(5, max_tat // 10)  # Ensures at least 5 ticks, scaling dynamically
+        ax.set_xticks(range(0, max_tat + tick_interval, tick_interval))
+
         ax.set_xlabel("Turnaround Time (Days)", fontsize=14, fontname='Arvo', fontstyle='italic')
         ax.set_ylabel("Turnaround Time Groups (Sale to DOE, DOE to COI)", fontsize=14, fontname='Arvo', fontstyle='italic')
         ax.set_title("Turnaround Time Analysis (Stacked Horizontal Bar Chart)", fontsize=16, fontname='Georgia', fontweight='bold')
