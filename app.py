@@ -90,10 +90,17 @@ if uploaded_file is not None:
         # Formatting the Plot
         ax.set_yticks([])
         
-        # Set x-ticks dynamically based on max turnaround time
+        # Ensure max_tat is a valid integer
         max_tat = tat_summary["Total TAT (Sale to COI)"].max()
-        tick_interval = max(5, max_tat // 10)  # Ensures at least 5 ticks, scaling dynamically
-        ax.set_xticks(range(0, max_tat + tick_interval, tick_interval))
+        
+        if pd.isna(max_tat):  # Handle empty dataset case
+            max_tat = 0
+        else:
+            max_tat = int(max_tat)  # Convert to integer
+        
+        tick_interval = max(5, max_tat // 10 if max_tat > 0 else 1)  # Ensure interval is never zero
+        ax.set_xticks(list(range(0, max_tat + tick_interval, tick_interval)))
+
 
         ax.set_xlabel("Turnaround Time (Days)", fontsize=14, fontname='Arvo', fontstyle='italic')
         ax.set_ylabel("Turnaround Time Groups (Sale to DOE, DOE to COI)", fontsize=14, fontname='Arvo', fontstyle='italic')
