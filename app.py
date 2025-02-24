@@ -19,9 +19,8 @@ if data is not None:
     df["TATDOEToCOI"] = (df["COI Uploaded Date"] - df["DOE"]).dt.days
 
     years = sorted(df['year'].dropna().unique())
-    months = sorted(df['month'].dropna().unique())
-
     userYear = st.selectbox("Select Year", ["All"] + years)
+    months = sorted(df['month'].dropna().unique())
     userMonth = st.selectbox("Select Month", ["All"] + months)
 
     filtered_df = df.copy()
