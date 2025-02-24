@@ -54,7 +54,8 @@ if uploaded_file is not None:
         tat_summary = tat_summary.sort_values(by=["Total TAT (Sale to COI)"], ascending=True)
 
         # Plotting
-        fig, ax = plt.subplots(figsize=(12, 16))
+        fig_height = max(5, len(tat_summary) * 0.5)  # Minimum height 5, scales with data
+        fig, ax = plt.subplots(figsize=(12, fig_height))
         y_positions = range(len(tat_summary))
 
         bars_sale_to_doe = ax.barh(y_positions, tat_summary["TAT Sale to DOE"], color='#876FD4', label="Sale to DOE")
