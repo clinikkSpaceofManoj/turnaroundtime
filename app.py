@@ -52,9 +52,6 @@ if uploaded_file is not None:
         tat_summary.drop(columns=["TAT Pair"], inplace=True)
         tat_summary["Total TAT (Sale to COI)"] = tat_summary["TAT Sale to DOE"] + tat_summary["TAT DOE to COI Upload"]
         tat_summary = tat_summary.sort_values(by=["Total TAT (Sale to COI)"], ascending=True)
-        tat_summary["TAT Sale to DOE"] = tat_summary["TAT Sale to DOE"].astype(int)
-        tat_summary["TAT DOE to COI Upload"] = tat_summary["TAT DOE to COI Upload"].astype(int)
-
 
         # Plotting
         fig_height = max(5, len(tat_summary) * 0.5)  # Minimum height 5, scales with data
