@@ -57,7 +57,7 @@ if uploaded_file is not None:
         fig, ax = plt.subplots(figsize=(12, 7))
         y_positions = range(len(tat_summary))
 
-        bars_sale_to_doe = ax.barh(y_positions, tat_summary["TAT Sale to DOE"], color='#5E40BE', label="Sale to DOE")
+        bars_sale_to_doe = ax.barh(y_positions, tat_summary["TAT Sale to DOE"], color='#876FD4', label="Sale to DOE")
         bars_doe_to_coi = ax.barh(y_positions, tat_summary["TAT DOE to COI Upload"], color='#B6A6E9', left=tat_summary["TAT Sale to DOE"], label="DOE to COI Upload")
 
         # Add labels inside the bars
