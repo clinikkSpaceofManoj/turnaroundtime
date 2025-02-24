@@ -67,7 +67,7 @@ if uploaded_file is not None:
                     ha='center', va='center', color='white', fontsize=10, fontweight='bold')
 
         for bar, days, start in zip(bars_doe_to_coi, tat_summary["TAT DOE to COI Upload"], tat_summary["TAT Sale to DOE"]):
-            ax.text(start + bar.get_width() / 2, bar.get_y() + bar.get_height() / 2, f"{days}", 
+            ax.text(start + bar.get_width() / 2, bar.get_y() + bar.get_height() / 2, f"{int(days)}", 
                     ha='center', va='center', color='white', fontsize=10, fontweight='bold')
 
         # Display count beside each bar group
