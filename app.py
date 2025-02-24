@@ -85,7 +85,7 @@ if uploaded_file is not None:
 
         # Display Count Beside Each Bar Group
         for y, total_tat, count in zip(y_positions, tat_summary["Total TAT (Sale to COI)"], tat_summary["Count"]):
-            ax.text(total_tat + 2, y, f"({count})", ha='left', va='center', fontsize=12, fontweight='bold', color='black')
+            ax.text(total_tat + 2, y, f"({count})", ha='left', va='left', fontsize=12, fontweight='bold', color='black')
 
         # Formatting the Plot
         ax.set_yticks([])
