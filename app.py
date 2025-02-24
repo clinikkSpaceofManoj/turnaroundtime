@@ -40,8 +40,8 @@ if data is not None:
 
     fig, ax = plt.subplots(figsize=(12, 7))
     y_positions = range(len(groupedData))
-    bars1 = ax.barh(y_positions, groupedData["TATSaleToDOE"], color='#B6A6E9', label="Sale to DOE")
-    bars2 = ax.barh(y_positions, groupedData["TATDOEToCOI"], color='#5E40BE', left=groupedData["TATSaleToDOE"], label="DOE to COI Upload")
+    bars1 = ax.barh(y_positions, groupedData["TATSaleToDOE"], color='#5E40BE', label="Sale to DOE")
+    bars2 = ax.barh(y_positions, groupedData["TATDOEToCOI"], color='#B6A6E9', left=groupedData["TATSaleToDOE"], label="DOE to COI Upload")
 
     for bar, days in zip(bars1, groupedData["TATSaleToDOE"]):
         ax.text(bar.get_width() / 2, bar.get_y() + bar.get_height() / 2, f"{days}", 
