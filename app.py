@@ -19,14 +19,11 @@ if data is not None:
     df["TATDOEToCOI"] = (df["COI Uploaded Date"] - df["DOE"]).dt.days
 
     years = sorted(df['year'].dropna().unique())
-    userYear = st.selectbox("Select Year", ["All"] + years)
-    months = sorted(df['month'].dropna().unique())
-    userMonth = st.selectbox("Select Month", ["All"] + months)
-
     filtered_df = df.copy()
     if userYear != "All":
         filtered_df = filtered_df[filtered_df["year"] == userYear]
-    if userMonth != "All":
+        months = sorted(filtered_df['month'].dropna().unique())
+        userMonth = st.selectbox("Select Month", ["All"] + months)
         filtered_df = filtered_df[filtered_df["month"] == userMonth]
 
     tatCounts = Counter(zip(filtered_df["TATSaleToDOE"], filtered_df["TATDOEToCOI"]))
